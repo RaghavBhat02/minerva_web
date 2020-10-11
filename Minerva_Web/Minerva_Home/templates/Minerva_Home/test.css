@@ -1,0 +1,36 @@
+body {
+  color: blue;
+  text-align: center;
+  background-color: LemonChiffon;
+}
+li {
+  font-family: Arial;
+}
+.td1 {
+  font-family: Arial, sans-serif;
+}
+@media (min-width: 600px) {
+  .test {
+    width: 500px;
+  }
+@media (max-width: 599px) {
+  .test {
+    width: 100px;
+  }
+}
+.test {
+  font-family: Arial;
+  font-size: 20px;
+  font-style: italic;
+  text-align:left;
+  background-color:crimson;
+  padding: 10px;
+  border-radius:20px;
+}
+.test:hover {
+  background-color: palegreen;
+}
+
+a[href="https://google.com"] {
+  color: orange;
+}

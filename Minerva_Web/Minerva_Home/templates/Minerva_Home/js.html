@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <script>
+      function hello() {
+        alert('Hello Again!' + 0);
+      }
+      let counter = 0;
+
+      function count() {
+        counter += 1;
+        document.querySelector('h2').innerHTML = counter;
+        if (counter % 10 === 0) {
+          alert(`Count is now ${counter}`)
+        }
+      }
+      function goodbye() {
+        if (document.querySelector('h1').innerHTML === 'Hello!') {
+          document.querySelector('h1').innerHTML = 'Goodbye!';
+        } else {
+          document.querySelector('h1').innerHTML = 'Hello!';
+        }
+      }
+      function variable() {
+        //same as goodbye, but uses a variable so document.querySelector
+        // doesn't have to be used so many times cause we are calling it twice
+        //times in the above function. In other words the JS is scanning the whole document
+        //TWICE, and in larger amounts and larger dxocuments, that will slow down the speed
+        // of the web application. So therefore, we can call it ONCE by putting it into a variable:
+        const heading = document.querySelector('h1') //using const because heading will not change
+        if (heading.innerHTML === 'Hello!') {
+          heading.innerHTML = 'Goodbye!';
+        } else {
+          heading.innerHTML = 'Hello!'
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Hello There!</h1>
+    <h2>0</h2>
+    <button onclick="hello()"> Hello </button>
+    <button onclick="count()">Count</button>
+    <button onclick="goodbye()">Goodbye</button>
+    <button onclick="variable()">Goodbye 2</button>
+
+    <p>Hmmmm</p>
+  </body>
+</html>
