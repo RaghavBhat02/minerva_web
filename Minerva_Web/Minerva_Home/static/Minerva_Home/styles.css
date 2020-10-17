@@ -19,8 +19,12 @@ body {
 }
 
 .right-side > div {
-    display: flex;
-    justify-content: space-between;
+    /*display: flex;
+    justify-content: space-between;*/
     margin-right: 5px;
+
+}
+
+.nav-link-wrapper {
 
 }
