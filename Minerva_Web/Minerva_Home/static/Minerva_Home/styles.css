@@ -1,0 +1,10 @@
+body {
+    background-color: yellow;
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
