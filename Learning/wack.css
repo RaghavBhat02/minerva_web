@@ -1,0 +1,30 @@
+body {
+    background-color: yellow;
+    margin: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.right-side {
+    display: flex;
+}
+
+.right-side > div {
+    /*display: flex;
+    justify-content: space-between;*/
+    margin-right: 5px;
+
+}
+
+.nav-link-wrapper {
+
+}
