@@ -7,7 +7,7 @@ def index (request):
 def logged(request):
     # If no user is signed in, return to login page:     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
-    return render(request, "Minerva_Home/logs.html")
+    return render(request, "Minerva_Home/logged.html")
 
 def login_view(request):
     if request.method == "POST":
