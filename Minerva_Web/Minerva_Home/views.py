@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 
 # Create your views here.
 def index (request):
@@ -11,19 +12,7 @@ def logged(request):
     return render(request, "Minerva_Home/logged.html")
 
 def login_view(request):
-    if request.method == "POST":
-        username = request.POST["username"]
-        password = request.POST["password"]
 
-        user = authenticate(request, username=username, password=password)
-
-        if user:
-            login(request, user)
-            return HttpResponseRedirect(reverse("logged"))
-        else:
-            return render(request, "Minerva_Home/login.html", {
-                "message": "Invalid Credentials"
-            })
     return render(request, "Minerva_Home/login.html")
 
 # logs out user
@@ -32,3 +21,19 @@ def logout_view(request):
     return render(request, "Minerva_Home/login.html", {
                 "message": "Logged Out"
             })
+"""
+if request.method == "POST":
+    username = request.POST["username"]
+    password = request.POST["password"]
+
+    user = authenticate(request, username=username, password=password)
+
+    if user:
+        login(request, user)
+        return HttpResponseRedirect(reverse("logged"))
+    else:
+        return render(request, "Minerva_Home/login.html", {
+            "message": "Invalid Credentials"
+        })
+
+"""
