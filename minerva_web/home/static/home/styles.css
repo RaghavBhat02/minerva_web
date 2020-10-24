@@ -46,7 +46,16 @@ body {
 }
 
 /*Home Block 1*/
-
+.home-wrapper {
+    text-align: right;
+}
 h1 {
     color: blue;
+}
+
+.home-wrapper .tag-line {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
