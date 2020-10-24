@@ -7,7 +7,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 }
-
+/*NAV BAR */
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -43,4 +43,10 @@ body {
     color: black;
     text-align: center;,
 
+}
+
+/*Home Block 1*/
+
+h1 {
+    color: blue;
 }
