@@ -3,11 +3,11 @@ body {
     margin: 0px;
 }
 
-.container {
+.container-nav {
     display: grid;
     grid-template-columns: 1fr;
 }
-
+/*NAV BAR */
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -19,12 +19,34 @@ body {
 }
 
 .right-side > div {
-    /*display: flex;
-    justify-content: space-between;*/
+    display: flex;
+    justify-content: space-between;
     margin-right: 5px;
 
 }
 
 .nav-link-wrapper {
+    height: 25px;
+    width: 120px;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* display: flex; */
+    align-items: center;
+    /* justify-content:space-around; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 14px;
+}
 
+.nav-link-wrapper a {
+    width: 125px;
+    text-decoration: none;
+    color: black;
+    text-align: center;,
+
+}
+
+/*Home Block 1*/
+
+h1 {
+    color: blue;
 }
