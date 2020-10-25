@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .models import image
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def index(request):
@@ -29,7 +30,7 @@ def login_view(request):
         # If user object is returned, log in and route to index page:
         if user:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("home:index"))
         # Otherwise, return login page again with new context
         else:
             return render(request, "home/login.html", {
