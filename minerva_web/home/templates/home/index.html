@@ -1,5 +1,5 @@
 {% extends "home/layout.html" %}
-
+{% load static %}
 {% block title %}
     <title>Minerva - Tutoring</title>
     <link rel="stylesheet" href="{% static 'home/styles.css' %}">
@@ -21,7 +21,7 @@
         <a href="">For Tutors</a>
       </div>
       <div class="nav-link-wrapper">
-          <a href="">Sign In</a>
+          <a href="{% url 'home:login' %}">Sign In</a>
       </div>
       <!--<div class="nav-link-wrapper">
           <a href= ></a>
@@ -33,7 +33,6 @@
       <h1>MINERVA</h1>
       <h3 class="tag-line">By UofM students,</h3>
       <h3 class="tag-line">For UofM students.</h3>
-
   </div>
 </div> <!--container-->
 {% endblock %}
