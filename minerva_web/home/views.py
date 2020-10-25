@@ -12,10 +12,10 @@ def index(request):
 
 
 def logout_view(request):
-     pass
-     # Pass is a simple way to tell python to do nothing.
-
-    # Additional imports we'll need:
+    logout(request)
+    return render(request, "home/login.html", {
+                "message": "Logged Out"
+            })
 
 
 def login_view(request):
