@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from .models import image
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
+
 # Create your views here.
 
 def index(request):
