@@ -1,8 +1,10 @@
 
-
+:root {
+    --blue: #1342AE;
+}
 /* bordered form */
 form {
-  border: 5px solid #000000;
+  border: 5px solid var(--blue);
 }
 
 /*screen-width text boxes*/
@@ -25,7 +27,7 @@ form {
     box-sizing: border-box;
   }
   button{
-    background-color: #1342AE;
+    background-color: var(--blue);
     color: white;
     padding: 22px 20px;
     margin: 6px 2px;
@@ -48,7 +50,7 @@ form {
     box-sizing: border-box;
   }
   button{
-    background-color: #1342AE;
+    background-color: var(--blue);
     color: white;
     padding: 12px 20px;
     margin: 6px 2px;
