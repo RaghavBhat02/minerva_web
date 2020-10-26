@@ -1,11 +1,12 @@
 :root {
     --link-color: black;
 }
+/*basic body setup */
 body {
     background-color: yellow;
     margin: 0px;
 }
-
+/*nav bar*/
 .container-nav {
     display: grid;
     grid-template-columns: 1fr;
@@ -87,7 +88,11 @@ body {
     margin-inline-end: 0;*/
 }
 
-/*For Students */
-.for-students {
+/*About Us */
+.about-container {
     background-color: black;
+    color: yellow;
+}
+.about-container h1 {
+    font-family: 'Actor',sans-serif;
 }
