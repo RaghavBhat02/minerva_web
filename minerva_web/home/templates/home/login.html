@@ -12,7 +12,7 @@
     {% endif %}
 
 
-
+<div class="form-containter">
     <form action={% url 'home:login' %} method="post">
       {% csrf_token %}
   <div class="imgcontainer">
@@ -32,9 +32,12 @@
     </label>
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
+  <div class="bottom-container" >
+    <button type="button" class="cancelbtn" >
+      <a href= "{% url 'home:index' %}">Cancel</a>
+    </button>
     <a class="psw" href="#"> Forgot Password? </a>
   </div>
 </form>
+</div>
 {% endblock %}

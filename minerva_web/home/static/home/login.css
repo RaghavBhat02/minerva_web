@@ -1,9 +1,21 @@
+
+
 /* bordered form */
 form {
-  border: 5px solid #F1F1F1;
+  border: 5px solid #000000;
 }
 
 /*screen-width text boxes*/
+@media (min-width: 551px){
+  /* entering login form */
+  body{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   input[type = text], input[type = password] {
     width: 100% ;
     padding: 20px 20px;
@@ -12,8 +24,6 @@ form {
     border:  2px solid #000000;
     box-sizing: border-box;
   }
-
-  /* button style*/
   button{
     background-color: #1342AE;
     color: white;
@@ -23,6 +33,31 @@ form {
     cursor: pointer;
     width: 100%;
   }
+  form{
+    width: 524px;
+  }
+}
+
+@media (max-width: 550px){
+  input[type = text], input[type = password] {
+    width: 100% ;
+    padding: 12px 20px;
+    margin: 6px 2px;
+    display: inline-block;
+    border:  2px solid #000000;
+    box-sizing: border-box;
+  }
+  button{
+    background-color: #1342AE;
+    color: white;
+    padding: 12px 20px;
+    margin: 6px 2px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
 
   /* hover effect for submit button */
   button: hover {
@@ -50,9 +85,18 @@ form {
 
   /* Add padding to containers */
   .container {
+    display: grid;
+    grid-template-columns: auto;
     padding: 12px;
   }
+  .bottom-container {
+    padding: 12px;
+    background-color: #1342AE;
+  }
 
+  .bottom-container a{
+    color: white;
+  }
   /* "Forgor password" text prompt */
   span.psw{
     float: right;
@@ -68,4 +112,8 @@ form {
     .cancelbtn {
       width: 100%;
     }
+  }
+  button a{
+    text-decoration: none;
+    color: white;
   }
