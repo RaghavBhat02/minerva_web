@@ -65,11 +65,19 @@ body {
 /*Home Block 1*/
 .home-wrapper {
     text-align: right;
-    font-family: Georgia, sans-serif;
+    font-family: 'Actor',sans-serif;
 
 }
 .home-wrapper h1 {
     color: blue;
+    font-size: 17vw;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 150px;
+    margin-right: 30px;
+
 }
 
 .home-wrapper .tag-line {
@@ -77,4 +85,9 @@ body {
     margin-block-end: 0;
     /*margin-inline-start: 0;
     margin-inline-end: 0;*/
+}
+
+/*For Students */
+.for-students {
+    background-color: black;
 }
