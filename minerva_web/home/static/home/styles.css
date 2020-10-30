@@ -1,5 +1,6 @@
 :root {
     --link-color: black;
+    --yellow: rgb(255, 218, 56);
 }
 /*basic body setup */
 body {
@@ -91,7 +92,7 @@ body {
 /*About Us */
 .about-container {
     background-color: black;
-    color: yellow;
+    color: var(--yellow);
 }
 .about-container h1 {
     font-family: 'Actor',sans-serif;
