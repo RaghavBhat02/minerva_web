@@ -93,11 +93,26 @@ form {
   }
   .bottom-container {
     padding: 12px;
+    padding-bottom: 0px;
+    /*padding-bottom: 0px;*/
     background-color: #1342AE;
+    color:white;
+
   }
 
-  .bottom-container a{
+  .bottom-container a, .bottom-most-container a{
     color: white;
+
+  }
+
+  .bottom-most-container {
+    background-color: #1342AE;
+    color:white;
+    padding-top:1px;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-bottom: 1px;
+
   }
   /* "Forgor password" text prompt */
   span.psw{
