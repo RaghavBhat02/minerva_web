@@ -4,6 +4,7 @@
 }
 /* bordered form */
 form {
+  margin-top: 10px;
   border: 5px solid var(--blue);
 }
 

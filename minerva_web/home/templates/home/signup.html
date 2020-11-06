@@ -1,4 +1,3 @@
-<!-- creates a login form -->
 {% extends "home/layout.html" %}
 {% load static %}
 {% block title %}
@@ -13,35 +12,45 @@
 
 
 <div class="form-containter">
-    <form action={% url 'home:login' %} method="post">
+    <form action={% url 'home:signup' %} method="post">
       {% csrf_token %}
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
+    <label for="firstname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+    <label for="lastname"><b> Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
     <label for="password"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    <label for="password"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Enter Password Again" name="password-confirm" required>
+
+    <button type="submit">SignUp</button>
+
   </div>
 
   <div class="bottom-container" >
     <button type="button" class="cancelbtn" >
       <a href= "{% url 'home:index' %}">Cancel</a>
     </button>
-    <a class="psw" href="#"> Forgot Password? </a>
+
   </div>
   <div class="bottom-most-container">
       <p>
-          Don't Have an Account?
-          <a href= "{% url 'home:signup' %}"> Sign Up Here! </a>
+          Already Have an Account?
+          <a href= "{% url 'home:login' %}"> Sign In Here! </a>
       </p>
   </div>
 </form>
