@@ -42,24 +42,24 @@ def login_view(request):
 
 def signup_view(request):
     if request.method == "POST": #check if method is post
-        password = request.POST["password"] #check if both entered passwords match
+        password = request.POST["password"] #store password and password-confirm
         password_confirm = request.POST["password-confirm"]
-        if not password == password_confirm:
+        if not password == password_confirm:#check if both entered passwords match
             return render(request, "home/signup.html",{
             "message": "Passwords don't match!" #if they don't match say that they don't match
             })
-        email = request.POST["email"] #check if email ends with umich.edu
-        if not email.endswith('@umich.edu'):
+        email = request.POST["email"] #store email
+        if not email.endswith('@umich.edu'):#check if email ends with umich.edu
             return render(request, "home/signup.html",{
             "message": "Please use your UMich email! Your email should end with @umich.edu" #if they don't match say that they don't match
             })
-        username = request.POST["username"]
-        first_name = request.POST["firstname"]
-        last_name = request.POST["lastname"]
-        user = User.objects.create_user(username, email, password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-        return HttpResponse("USER CREATED!")
-
+        username = request.POST["username"] #store username
+        first_name = request.POST["firstname"] #store first name
+        last_name = request.POST["lastname"] #store last name
+        user = User.objects.create_user(username, email, password) #create user
+        user.first_name = first_name #add first name to user
+        user.last_name = last_name #add last name to user
+        user.save() #save user
+        return HttpResponse("USER CREATED!") #send response (replace this with redirect or rendering the decision page)
+        
     return render(request,"home/signup.html")

@@ -3,11 +3,13 @@
 {% block title %}
     <title>Minerva - Tutoring</title>
     <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/michigan/michigan.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
 {% block body %}
+
 <div class="container-nav">
   <div class="nav-wrapper">
     <div class="left-side">
@@ -17,7 +19,7 @@
     </div>
     <div class="right-side">
       <div class="nav-link-wrapper">
-        <a href="">For Students</a>
+        <a href="#students-container">For Students</a>
       </div>
       <div class="nav-link-wrapper">
         <a href="">For Tutors</a>
@@ -32,41 +34,37 @@
     </div> <!--right side-->
   </div> <!--nav bar-->
   <div class="home-wrapper">
-      <h1>MINERVA</h1>
-      <h3 class="tag-line">By UofM students,</h3>
+      <h1><span>M</span>INERVA</h1>
+      <h3 class="tag-line">By UofM students, </h3>
       <h3 class="tag-line">For UofM students.</h3>
   </div>
 </div> <!--container-->
 
 
 <!-- students page begins here-->
-<div class="students-container">
-  <div class="row">
-    <div class="column">
-      <div class="card">..</div>
+<div id="students-container">
+    <h1 class="section-header">For Students</h1>
+    <div id="classes">
+        <div class="class"><a href="#">EECS 280</a></div>
+        <div class="class">EECS 281</div>
+        <div class="class">MATH 215</div>
+        <div class="class">MATH 116</div>
+        <div class="class">MATH 115</div>
+        <div class="class">PHYSICS 140</div>
+        <div class="class">Some text 7!</div>
+        <div class="class">Some text 8!</div>
+        <div class="class">Some text 9!</div>
+        <div class="class">Some text 10!</div>
+        <div class="class">Some text 11!</div>
+        <div class="class">Some text 12!</div>
     </div>
-    <div class="column">
-      <div class="card">..</div>
-    </div>
-    <div class="column">
-      <div class="card">..</div>
-    </div>
-    <div class="column">
-      <div class="card">..</div>
-    </div>
-  </div>
 </div>
 
 <!-- ABOUT PAGE BEGINS HEREEEEEEEE -->
 <div class="about-container">
 
     <h1 class="section-header"> About Us </h1>
-    <h2> Why </h2>
-    <span> Type Random Content Here. Maybe you want to add some h2s or h3s to say "Why?", "How?", and "What?"</span>
-    <h2> How </h2>
-    <span> Type Random Content Here. Maybe you want to add some h2s or h3s to say "Why?", "How?", and "What?"</span>
-    <h2> What </h2>
-    <span> Type Random Content Here. Maybe you want to add some h2s or h3s to say "Why?", "How?", and "What?"</span>
+    <span>Sleep deprived? Co-dependent on coffee? Cramming the night before the test? Saying a Hail Mary that the few things you memorized will be on the test? Constantly contemplating dropping out of school because of your GPA? We know your pain. As a group of 5 fellow University of Michigan students weve been in your place a few too many times. We found in our struggles we couldn’t even find the academic help we needed when we needed it (meaning when we were in panic mode a few days prior to a test). Frankly, we were just too lazy to aimlessly find a tutor through Facebook or word of mouth so we decided to take out the work for you. Welcome to Minerva, find all fellow University of Michigan tutors in one place for the class you need. For UofM students, by UofM students.</span>
 </div>
 <!-- ABOUT PAGE ENDSS HEREEEEEE -->
 

@@ -7,3 +7,10 @@ class image(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+class Class(models.Model):
+    department = models.CharField(max_length=32)
+    number = models.IntegerField()
+    name = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f"{self.department} Test {self.number}"

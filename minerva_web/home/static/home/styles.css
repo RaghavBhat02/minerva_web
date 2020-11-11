@@ -1,12 +1,23 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
     --link-color: black;
     --yellow: rgb(255, 218, 56);
+    --blue: #1342AE;
 }
 /*basic body setup */
 body {
     background-color: yellow;
     margin: 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
 }
+
 /*nav bar*/
 .container-nav {
     display: grid;
@@ -47,11 +58,14 @@ body {
 }
 
 .nav-link-wrapper a {
+
     width: 125px;
     text-decoration: none;
     color: var(--link-color);
     text-align: center;,
     transition: color 0.5s;
+    /*height:100%;
+    line-height: 100%;*/
 
 }
 
@@ -68,9 +82,11 @@ body {
 .home-wrapper {
     text-align: right;
     font-family: 'Actor',sans-serif;
+    height: 93vh;
 
 }
 .home-wrapper h1 {
+    font-family: 'Actor',sans-serif;
     color: blue;
     font-size: 17vw;
     margin-block-start: 0em;
@@ -82,19 +98,74 @@ body {
 
 }
 
+h1 span {
+    font-family: 'michigan', sans-serif;
+    font-size: 14.65vw;
+}
+
 .home-wrapper .tag-line {
     margin-block-start: 0;
     margin-block-end: 0;
+    margin-right: 30px; /*25%*/
+    font-size: 3vw;
     /*margin-inline-start: 0;
     margin-inline-end: 0;*/
 }
 
 /*About Us */
+
+.section-header { /*Applies to other sections as well */
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    font-family: 'Actor',sans-serif;
+}
 .about-container {
     background-color: black;
     color: var(--yellow);
-}
-.about-container h1 {
-    font-family: 'Actor',sans-serif;
+    font-family: 'Actor',Arial, sans-sans-serif;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 1em;
+    padding-bottom: 3em;
 
+}
+
+
+
+/* For Students */
+#students-container {
+    background-color: var(--yellow);
+    padding-top: 1em;
+}
+#students-container .section-header {
+    margin-left: 36px;
+
+}
+
+#classes {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px 16px;
+}
+.class {
+    background-color: black;
+    color: var(--yellow);
+    font-family: 'Actor',sans-serif;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.class:hover {
+    background-color:darkblue;
+    cursor:pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.class a {
+    color: var(--yellow);
+    text-decoration: none;
 }
