@@ -19,15 +19,17 @@ body {
 }
 
 /*nav bar*/
-.container-nav {
+.container-nav-home {
     display: grid;
     grid-template-columns: 1fr;
+
 }
 /*NAV BAR */
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+
 }
 
 .right-side {
@@ -51,8 +53,8 @@ body {
     /* justify-content:space-around; */
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 14px;
-    transition: background-color 5.s;
-    transition: --link-color 0.5s;
+    transition: 0.1s;
+
 
 
 }
