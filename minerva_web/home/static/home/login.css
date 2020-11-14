@@ -1,6 +1,6 @@
 
 :root {
-    --blue: #1342AE;
+    --blue: darkblue/*#1342AE*/;
 }
 /* bordered form */
 form {
@@ -96,7 +96,7 @@ form {
     padding: 12px;
     padding-bottom: 0px;
     /*padding-bottom: 0px;*/
-    background-color: #1342AE;
+    background-color: var(--blue);
     color:white;
 
   }
@@ -107,7 +107,7 @@ form {
   }
 
   .bottom-most-container {
-    background-color: #1342AE;
+    background-color: var(--blue);
     color:white;
     padding-top:1px;
     padding-right: 12px;
