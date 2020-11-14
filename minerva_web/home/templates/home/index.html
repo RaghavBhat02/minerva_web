@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'home/styles.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/michigan/michigan.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 {% endblock %}
 
 {% block body %}
@@ -48,8 +48,9 @@
 <!-- students page begins here-->
 <div id="students-container">
     <h1 class="section-header">For Students</h1>
+    <span>Click below to find tutors for your classes!</span>
     <div id="classes">
-        <div class="class"><a href="#">EECS 280</a></div>
+        <div class="class"><a href="{% url 'home:class' %}">EECS 280</a></div>
         <div class="class">EECS 281</div>
         <div class="class">MATH 215</div>
         <div class="class">MATH 116</div>

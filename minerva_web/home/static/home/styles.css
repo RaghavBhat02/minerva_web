@@ -138,9 +138,12 @@ h1 span {
 #students-container {
     background-color: var(--yellow);
     padding-top: 1em;
-}
-#students-container .section-header {
-    margin-left: 36px;
+    font-family: 'Actor',Arial, sans-sans-serif;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 1em;
+    padding-bottom: 3em;
+
 
 }
 
@@ -193,4 +196,34 @@ footer {
     padding-top: 1em;
     padding-bottom: 1em;
     text-align: center;
+}
+
+/* For Class.html */
+
+#tutor-profiles{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px 12px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 200px;
+  background-color: black;
+  color: var(--yellow);
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container-info {
+  padding: 2px 16px;
+}
+.checked{
+  color: gold;
 }

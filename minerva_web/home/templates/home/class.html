@@ -1,0 +1,37 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block title %}
+  <title> Math 215</title>
+  <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+  <div id = "tutor-profiles">
+    <div class="card">
+    <img src="img_avatar.png" alt="Avatar" style="width:100%">
+      <div class="container-info">
+        <h4><b>Albert Einsten</b></h4>
+        <p>Physics Tutor</p>
+    </div>
+  </div>
+
+
+    <div id = "tutor-profiles">
+      <div class="card">
+      <img src="{% static 'images/stocktutorimage.jpg' %}" alt="Avatar" style="width:100%">
+
+        <div class="container-info">
+          <h4><b>Sir Isaac Newton</b></h4>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <p>5 word explanation of why I'm a good tutor</p>
+          <p>$ 25 per hour</p>
+      </div>
+    </div>
+    {% endblock %}
+  <!--display available tutor profiles-profile picture, name, rating, rate -->
+  <!--Course materials acquired from university -->

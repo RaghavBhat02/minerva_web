@@ -61,5 +61,8 @@ def signup_view(request):
         user.last_name = last_name #add last name to user
         user.save() #save user
         return HttpResponse("USER CREATED!") #send response (replace this with redirect or rendering the decision page)
-        
+
     return render(request,"home/signup.html")
+
+def class_view(request):
+    return render(request, "home/class.html")
