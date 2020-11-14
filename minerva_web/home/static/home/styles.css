@@ -171,3 +171,26 @@ h1 span {
     color: var(--yellow);
     text-decoration: none;
 }
+
+/*For Tutors*/
+
+#tutors-container {
+    background-color:darkblue;
+    color: var(--yellow);
+    font-family: 'Actor',Arial, sans-sans-serif;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 1em;
+    padding-bottom: 3em;
+}
+
+/* Footer */
+
+footer {
+    font-family: 'Actor',Arial, sans-sans-serif;
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
