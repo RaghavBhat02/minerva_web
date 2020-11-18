@@ -66,7 +66,9 @@ def signup_view(request):
     return render(request,"home/signup.html")
 
 def class_view(request, class_url):
-    class = Class.objects.get(url=class_url)
+    class_page = Class.objects.get(url=class_url)
+    tutors = Tutor.objects.get(classes=class_page)
     return render(request, "home/class.html", {
-        "class": class
+        "class_page": class_page,
+        "tutors": tutors
     })

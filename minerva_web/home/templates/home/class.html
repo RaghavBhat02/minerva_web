@@ -1,15 +1,15 @@
 {% extends "home/layout.html" %}
 {% load static %}
 {% block title %}
-  <title>Minerva - {{class.department}} {{class.number}}</title>
+  <title>Minerva - {{class_page.department}} {{class_page.number}}</title>
   <link rel="stylesheet" href="{% static 'home/styles.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block body %}
-  <h1>{{class.department}} {{class.number}} Tutors</h1>
+  <h1>{{class_page.department}} {{class_page.number}} Tutors</h1>
   <div id = "tutor-profiles">
-  {% for tutor in class.tutors %}
+  {% for tutor in tutors %}
     <div class="card">
         <img src="{{tutor.profile_pic}}" alt="Avatar" style="width:100%">
         <div class="container-info">

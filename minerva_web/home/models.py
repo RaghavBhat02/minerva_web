@@ -19,16 +19,16 @@ class Class(models.Model):
         return f"{self.department} {self.number}"
 
 class Tutor(models.Model):
-    user = models.ForeignKey(User,blank=True, null=False,on_delete=models.CASCADE, related_name = "tutor")
+    user = models.ForeignKey(User,blank=False, null=False,on_delete=models.CASCADE, related_name = "tutor")
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     last_paid = models.DateField()
     phone_number = models.IntegerField()
     why_GT = models.CharField(max_length=300)
     what_fav = models.TextField()
-    best_spot = model.TextField()
+    best_spot = models.TextField()
     any_interesting = models.TextField()
-    classes = ManytoManyField(Class, blank=True, related_name="tutors")
+    classes = models.ManyToManyField(Class, blank=True, related_name="tutors")
     profile_pic = models.ImageField(upload_to= 'home/static/images')
     rate = models.FloatField()
     rating = models.FloatField()
