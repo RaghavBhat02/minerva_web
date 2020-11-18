@@ -1,37 +1,30 @@
 {% extends "home/layout.html" %}
 {% load static %}
 {% block title %}
-  <title> Math 215</title>
+  <title>Minerva - {{class.department}} {{class.number}}</title>
   <link rel="stylesheet" href="{% static 'home/styles.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block body %}
+  <h1>{{class.department}} {{class.number}} Tutors</h1>
   <div id = "tutor-profiles">
+  {% for tutor in class.tutors %}
     <div class="card">
-    <img src="img_avatar.png" alt="Avatar" style="width:100%">
-      <div class="container-info">
-        <h4><b>Albert Einsten</b></h4>
-        <p>Physics Tutor</p>
-    </div>
-  </div>
-
-
-    <div id = "tutor-profiles">
-      <div class="card">
-      <img src="{% static 'images/stocktutorimage.jpg' %}" alt="Avatar" style="width:100%">
-
+        <img src="{{tutor.profile_pic}}" alt="Avatar" style="width:100%">
         <div class="container-info">
-          <h4><b>Sir Isaac Newton</b></h4>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-          <p>5 word explanation of why I'm a good tutor</p>
-          <p>$ 25 per hour</p>
-      </div>
+            <h4><b>{{tutor.first_name}}</b></h4>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <p>{{tutor.why_GT}}</p>
+                <p>{{tutor.rating}}</p>
+        </div>
     </div>
+  {% endfor %}
+  </div>
     {% endblock %}
   <!--display available tutor profiles-profile picture, name, rating, rate -->
   <!--Course materials acquired from university -->

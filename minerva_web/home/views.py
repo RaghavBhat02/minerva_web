@@ -3,6 +3,7 @@ from .models import image
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
+from .models import Class, Tutor
 
 # Create your views here.
 
@@ -64,5 +65,8 @@ def signup_view(request):
 
     return render(request,"home/signup.html")
 
-def class_view(request):
-    return render(request, "home/class.html")
+def class_view(request, class_url):
+    class = Class.objects.get(url=class_url)
+    return render(request, "home/class.html", {
+        "class": class
+    })
