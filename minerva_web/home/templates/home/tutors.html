@@ -1,0 +1,33 @@
+{% extends "home/layout.html" %}
+{% load static %}
+{% block title %}
+    <title>Minerva - {{tutor.first_name}} {{tutor.last_name}}</title>
+    <link rel="stylesheet" href="{% static 'home/tutors.css' %}">
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="profile-container">
+        <h1>{{tutor.first_name}} {{tutor.last_name}}</h1>
+        <div class="bottom-container">
+            <div class="left">
+                <img src="{{ tutor.profile_pic }}" alt="tutor profile pic">
+            </div>
+            <div class="right">
+                <p>My Calendly: <a href="{{tutor.calendly}}">{{tutor.calendly}}</a></p>
+                <h3>Why I would make a Good Tutor</h3>
+                <p>{{tutor.why_GT}}</p>
+                <p>{{tutor.what_fav}}</p>
+                <p>{{tutor.best_spor}}</p>
+                <p>{{tutor.any_interesting}}</p>
+                <p>{{tutor.rate}}</p>
+            </div>-
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}

@@ -9,7 +9,8 @@ from .models import Class, Tutor
 
 def index(request):
     return render(request,"home/index.html", {
-        "images":image.objects.all()
+        "images":image.objects.all(),
+        "classes": Class.objects.all()
     })
 
 
@@ -67,8 +68,13 @@ def signup_view(request):
 
 def class_view(request, class_url):
     class_page = Class.objects.get(url=class_url)
-    tutors = Tutor.objects.get(classes=class_page)
+    tutors = Tutor.objects.filter(classes=class_page)
     return render(request, "home/class.html", {
         "class_page": class_page,
         "tutors": tutors
+    })
+def tutor_view(request, tutor_id):
+    tutor = Tutor.objects.get(id=tutor_id)
+    return render(request, "home/tutors.html", {
+        "tutor": tutor
     })

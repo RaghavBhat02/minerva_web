@@ -195,7 +195,7 @@ h1 span {
 /* Footer */
 
 footer {
-    font-family: 'Actor',Arial, sans-sans-serif;
+    font-family: 'Actor',Arial, sans-serif;
     padding-left: 36px;
     padding-right: 36px;
     padding-top: 1em;
@@ -209,6 +209,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   padding: 4px 12px;
+  font-family:'Actor',Arial, sans-serif;
 }
 
 .card {
@@ -218,11 +219,18 @@ footer {
   width: 200px;
   background-color: black;
   color: var(--yellow);
+  margin: 20px;
+  font-family:'Actor',Arial, sans-serif;
+
+}
+.card a {
+    text-decoration: none;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: #383838;
 }
 
 /* Add some padding inside the card container */

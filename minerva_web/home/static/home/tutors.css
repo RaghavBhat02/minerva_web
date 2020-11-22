@@ -1,0 +1,9 @@
+/* Tutor Profile */
+.profile-container {
+    font-family: 'Actor', Arial, sans-serif;
+}
+.bottom-container {
+    display:flex;
+    flex-wrap: wrap;
+
+}
