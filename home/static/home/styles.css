@@ -17,13 +17,9 @@ body {
 
 
 }
-/* logo */
-.logo_image {
-    width: 100px;
-}
 
 
-/*nav bar*/
+/*nav bar container*/
 .container-nav-home {
     display: grid;
     grid-template-columns: 1fr;
@@ -35,6 +31,10 @@ body {
     justify-content: space-between;
     padding: 20px;
 
+}
+/* logo */
+.logo_image {
+    width: 100px;
 }
 
 .right-side {

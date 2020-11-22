@@ -15,7 +15,7 @@
     <form action={% url 'home:signup' %} method="post">
       {% csrf_token %}
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="{% static 'images/minerva_logo.png'%}" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
