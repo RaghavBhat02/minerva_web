@@ -221,12 +221,20 @@ footer {
   color: var(--yellow);
   margin: 20px;
   font-family:'Actor',Arial, sans-serif;
+  position: relative;
 
 }
 .card a {
     text-decoration: none;
 }
-
+/*.anchor {
+    display:block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}*/
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

@@ -4,11 +4,16 @@
 {% block title %}
     <title>Minerva - Login</title>
     <link rel="stylesheet" href="{% static 'home/login.css' %}">
+    <script src={% static 'home/login.js' %}></script>
+
+
 {% endblock %}
 
 {% block body %}
     {% if message %}
-        <div>{{ message }}</div>
+        <div class="message" role="alert">
+            {{message}}
+        </div>
     {% endif %}
 
 

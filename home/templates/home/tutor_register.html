@@ -3,9 +3,85 @@
 {% block title %}
     <title>Minerva - Tutor Registration </title>
     <link rel="stylesheet" href="{% static 'home/login.css' %}">
+    <script src={% static 'home/registration.js' %}></script>
 {% endblock %}
 
 {% block body %}
-    <h1>So you want to be a tutor?</h1>
-    <span>Answer the following questions to create your profile!</span>
+    <div class="super-container">
+        <div class="registration-head">
+            <h1>So you want to be a tutor?</h1>
+            <span>Answer the following questions to create your profile! All of this information will be viewable to students</span>
+        </div>
+        <form class="registration" action="{% url 'home:registration' %}" method="post">
+            {% csrf_token %}
+            <div class="questions-container">
+                <div class="question">
+                    <label for="rate">What is your estimated rate (dollars per hour)?</label>
+                    <input type="text" name="rate" placeholder="Rate here..." required>
+                </div>
+                <div class="question">
+                    <label for="calendly">What is your Calendly Link?</label>
+                    <input type="text" name="calendly" placeholder="Calendly Link Here..." required>
+                </div>
+                <div class="question">
+                    <label for="number">Phone Number (Optional)</label>
+                    <input type="text" name="number" placeholder="1-800-Min-erva">
+                </div>
+
+                <div class="question">
+                    <label for="whyGT">Why would you be a good tutor? (I.e grade gotten in the class, experience with the class, achievements, number of years tutoring, etc) </label>
+                    <textarea name="whyGT" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                </div>
+                <div class="question">
+                    <label for="whatfav">What is your favorite thing to do in Ann Arbor? (I.e best restaurant, secret hang out spots, etc)</label>
+                    <textarea name="whatfav" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                </div>
+                <div class="question">
+                    <label for="bestspot">Best study spot in Ann Arbor (if you know a secret quiet one even better!)</label>
+                    <textarea name="bestspot" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                </div>
+                <div class="question">
+                    <label for="anyinteresting">Anything else interesting you want people to know about you or anything else you want to add</label>
+                    <textarea name="anyinteresting" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                </div>
+                <div class="question">
+                        <label for="class-list">Select your classes from the list. You can add and remove classes as you wish.</label>
+                        <!--<p for="class-list">Note: You can select multiple classes by using Ctrl+Click on Windows and Cmd+Click on Mac</p>-->
+                        <div class="class-list-container">
+                            <h4>Your Classes: </h4>
+                            <ol id="class-list">
+                                {% if tutor_classes %}
+                                    {% for class in tutor_classes %}
+                                        <li>{{class.department}} {{class.number}} - {{class.name}}</li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ol>
+                        </div>
+                        <div>
+                            <select id="add-class" name="addclass">
+                                {% for class in classes %}
+                                        <option value="{{class.url}}">{{class.department}} {{class.number}} - {{class.name}}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="button" id="add-button" class="edit-classes">Add Class</button>
+                        </div>
+                        <div>
+                            <select id="remove-class" name="removeclass">
+                                {% if tutor_classes %}
+                                    {% for class in tutor_classes %}
+                                        <option value="{{class.url}}">{{class.department}} {{class.number}} - {{class.name}}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                            <button type="button" id="remove-button" class="edit-classes">Remove Class</button>
+                        </div>
+                </div>
+                <input type="hidden" name="classestoadd" id="class-array">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+
 {% endblock %}

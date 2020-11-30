@@ -13,6 +13,7 @@
 
   {% for tutor in tutors %}
     <div class="card">
+        <!--<a class="anchor" href="{% url 'home:tutor' tutor.id %}"></a>-->
         <img src="{% static 'images/minerva_logo.png' %}" alt="Avatar" style="width:100%" href="https://google.com">
         <div class="container-info" >
             <h4><a href="{% url 'home:tutor' tutor.id %}">{{tutor.first_name}} {{tutor.last_name}}</a></h4>

@@ -4,6 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from .models import Class, Tutor
+import datetime, json
+from django.db import IntegrityError
+from .forms import TutorForm
+
 
 # Create your views here.
 
@@ -58,18 +62,33 @@ def signup_view(request):
         username = request.POST["username"] #store username
         first_name = request.POST["firstname"] #store first name
         last_name = request.POST["lastname"] #store last name
-        user = User.objects.create_user(username, email, password) #create user
-        user.first_name = first_name #add first name to user
-        user.last_name = last_name #add last name to user
-        user.save() #save user
-        return HttpResponse("USER CREATED!") #send response (replace this with redirect or rendering the decision page)
+        tutor_yes = request.POST["tutoryes"] #saves whether they want to be a tutor or not
+        try:
+            user = User.objects.create_user(username, email, password) #create user
+
+            user.first_name = first_name #add first name to user
+            user.last_name = last_name #add last name to user
+            user.save() #save user
+        except IntegrityError:
+            return render(request, "home/signup.html", {
+                "message":"A user already exists with that username, please try again! If you think this is a mistake, please contact support at elizaday@umich.edu, and refer them to Error 108."
+            })
+
+
+        if tutor_yes == "tutor":
+            login(request, user) #login as user
+            return render(request, "home/tutor_register.html",{
+                "classes": Class.objects.all()
+            })
+
+        return HttpResponseRedirect(reverse("home:index"))
 
     return render(request,"home/signup.html")
 
 def class_view(request, class_url):
-    class_page = Class.objects.get(url=class_url)
-    tutors = Tutor.objects.filter(classes=class_page)
-    return render(request, "home/class.html", {
+    class_page = Class.objects.get(url=class_url) #get class based on url
+    tutors = Tutor.objects.filter(classes=class_page) #find the tutors who have this class
+    return render(request, "home/class.html", { #render the class page
         "class_page": class_page,
         "tutors": tutors
     })
@@ -78,3 +97,44 @@ def tutor_view(request, tutor_id):
     return render(request, "home/tutors.html", {
         "tutor": tutor
     })
+def registration_view(request):
+    if request.method == "POST":
+        rate = request.POST["rate"]
+        calendly = request.POST["calendly"]
+        number = request.POST["number"]
+        why_GT = request.POST["whyGT"]
+        what_fav = request.POST["whatfav"]
+        best_spot = request.POST["bestspot"]
+        any_interesting = request.POST["anyinteresting"]
+        if rate.startswith('$'):
+            end = len(rate) - 1
+            rate = rate[1:end]
+        if request.POST["number"]:
+            number = request.POST["number"]
+        if request.user.is_authenticated:
+            user_person = request.user
+        else:
+            return render(request, "home/login.html", {
+                "message": "There was an error in your sign up process, please contact support to finish singing up. Error #108"
+            })
+
+        new_tutor = Tutor(user=user_person,first_name=user_person.first_name, last_name=user_person.last_name)
+        new_tutor.why_GT = why_GT
+        new_tutor.what_fav = what_fav
+        new_tutor.best_spot = best_spot
+        new_tutor.any_interesting = any_interesting
+        new_tutor.rate = rate
+        new_tutor.last_paid = datetime.date(2000, 11, 22)
+        new_tutor.calendly = calendly
+
+        if request.POST["number"]:
+            new_tutor.phone_number = number
+        new_tutor.save()
+        class_array_json = request.POST["classestoadd"]
+        class_list = json.loads(class_array_json)
+        for item in class_list:
+            new_tutor.classes.add(Class.objects.get(url=item))
+            new_tutor.save()
+        new_tutor.save()
+        logout(request)
+        return HttpResponseRedirect(reverse("home:index"))
