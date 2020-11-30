@@ -248,3 +248,8 @@ footer {
 .checked{
   color: gold;
 }
+.class-header-container {
+    text-align: center;
+    background: rgb(255,255,255,0.5);
+
+}

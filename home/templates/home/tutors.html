@@ -11,7 +11,11 @@
         <h1>{{tutor.first_name}} {{tutor.last_name}}</h1>
         <div class="bottom-container">
             <div class="left">
-                <img src="{{ tutor.profile_pic }}" alt="tutor profile pic">
+                {% if tutor.profile_pic %}
+                    <img src="{{ tutor.profile_pic.url }}" alt="tutor profile pic" width="50%">
+                {% else %}
+                    <img src="{% static 'images/minerva_logo.png'%}" alt="tutor profile pic" width="50%">
+                {% endif %}
             </div>
             <div class="right">
                 <p>My Calendly: <a href="{{tutor.calendly}}">{{tutor.calendly}}</a></p>

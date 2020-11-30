@@ -29,7 +29,7 @@ class Tutor(models.Model):
     best_spot = models.TextField()
     any_interesting = models.TextField()
     classes = models.ManyToManyField(Class, blank=True, related_name="tutors")
-    profile_pic = models.ImageField(upload_to= 'home/static/images')
+    profile_pic = models.ImageField(upload_to= "profiles")
     rate = models.FloatField()
     rating = models.FloatField(null=True)
     calendly = models.TextField()

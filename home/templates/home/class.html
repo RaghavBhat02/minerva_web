@@ -7,14 +7,23 @@
 {% endblock %}
 
 {% block body %}
+<div class="class-header-container">
+
 
  <h1 style="font-family: 'Actor', Arial;">{{class_page.department}} {{class_page.number}} Tutors</h1>
+ <h2 style="font-family: 'Actor', Arial;"> {{class_page.name}}</h2>
+ <h4 style="font-family: 'Actor', Arial;"> Click on a tutor's name to view their profile! </h4>
+ </div>
   <div id = "tutor-profiles">
 
   {% for tutor in tutors %}
     <div class="card">
         <!--<a class="anchor" href="{% url 'home:tutor' tutor.id %}"></a>-->
-        <img src="{% static 'images/minerva_logo.png' %}" alt="Avatar" style="width:100%" href="https://google.com">
+        {% if tutor.profile_pic %}
+            <img src="{{tutor.profile_pic.url }}" alt="Avatar" style="width:100%" href="https://google.com">
+        {% else %}
+            <img src="{% static 'images/minerva_logo.png' %}" alt="Avatar" style="width:100%" href="https://google.com">
+        {% endif %}
         <div class="container-info" >
             <h4><a href="{% url 'home:tutor' tutor.id %}">{{tutor.first_name}} {{tutor.last_name}}</a></h4>
                 <span class="fa fa-star checked"></span>
