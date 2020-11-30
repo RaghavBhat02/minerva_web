@@ -1,3 +1,5 @@
+class_list_remove = []
+
 function createClassList() {
     if (!localStorage.getItem('class_list')) { //if class_list doesn't exist in the local storage
         const emptyArray = [];
@@ -16,7 +18,7 @@ function createClassList() {
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#add-button').onclick = ()=> {
         let {class_list, iHTML_list} = createClassList();
-        console.log(Array.isArray(class_list));
+        console.log("Is class list an array?" + Array.isArray(class_list));
         const add_class = document.querySelector('#add-class').value; //find newly added class_url by doing this: from the form's select element with id #add-class's value
         const query = "option[value=" + add_class + "]";
         //when doing querySelector, since it's in a string you can't simply do "option[value=add_class]"
@@ -28,10 +30,17 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('class_list', JSON.stringify(class_list)); //set those items to local storage
         localStorage.setItem('iHTML_list', JSON.stringify(iHTML_list));
 
+        for (let i = 0; i < class_list_remove.length; i++){ //for loop
+            if (class_list_remove[i] == add_class) { //if the value of the class = add_class then delete it from the remove class array (it also has to exist in the array for this to take affect)
+                class_list_remove.splice(i,1);
+
+            }
+        }
+
         const li = document.createElement('li'); //create list item
         console.log("value:" + add_class);
         li.dataset.value = add_class;
-        console.log(li.dataset.value);
+        console.log("value2:" + li.dataset.value);
         li.innerHTML = add_class_iHTML; //set its innerHTML = to the innerHTML of the added class
         document.querySelector('#class-list').append(li); //append it to the class list
 
@@ -51,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let {class_list, iHTML_list} = createClassList();
         console.log("hello: " + class_list);
         const remove_class = document.querySelector('#remove-class').value;
-        console.log(remove_class); //find the value(class_url) of the newly removed class
+        console.log("hola:" + remove_class); //find the value(class_url) of the newly removed class
         const query = "option[value=" + remove_class + "]";
         //same reasoning as the const query in the document.querySelector('#class-add-form').onsubmit
         const remove_class_iHTML = document.querySelector(query).innerHTML;
@@ -61,7 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 iHTML_list.splice(i,1);
             }
         }
-
+        class_list_remove.push(remove_class);
+        console.log(class_list_remove)
         localStorage.setItem('class_list', JSON.stringify(class_list)); //set those items to local storage
         localStorage.setItem('iHTML_list', JSON.stringify(iHTML_list));
 
@@ -85,9 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
             alert("Please select at least one class before continuing!");
             return false;
         }
-        console.log(class_list);
+        console.log("class_list:" + class_list);
         document.querySelector('#class-array').value = JSON.stringify(class_list);
         console.log(document.querySelector('#class-array').value);
+
+        document.querySelector('#remove-array').value = JSON.stringify(class_list_remove);
+
         localStorage.removeItem('class_list');
         localStorage.removeItem('iHTML_list');
         return true;

@@ -8,13 +8,23 @@ import datetime, json
 from django.db import IntegrityError
 from .forms import TutorForm
 
+#global variables
+
 
 # Create your views here.
 
 def index(request):
+    if request.user.is_authenticated:
+        try:
+            Tutor.objects.get(user=request.user)
+            tutor = True
+        except:
+            tutor = False
+    else:
+        tutor = False
     return render(request,"home/index.html", {
-        "images":image.objects.all(),
-        "classes": Class.objects.all()
+        "classes": Class.objects.all(),
+        "tutor_is_there": tutor
     })
 
 
@@ -74,11 +84,12 @@ def signup_view(request):
                 "message":"A user already exists with that username, please try again! If you think this is a mistake, please contact support at elizaday@umich.edu, and refer them to Error 108."
             })
 
-
+        login(request, user)
         if tutor_yes == "tutor":
-            login(request, user) #login as user
+             #login as user
             return render(request, "home/tutor_register.html",{
-                "classes": Class.objects.all()
+                "classes": Class.objects.all(),
+                "new": "true"
             })
 
         return HttpResponseRedirect(reverse("home:index"))
@@ -98,6 +109,7 @@ def tutor_view(request, tutor_id):
         "tutor": tutor
     })
 def registration_view(request):
+
     if request.method == "POST":
         rate = request.POST["rate"]
         calendly = request.POST["calendly"]
@@ -106,19 +118,34 @@ def registration_view(request):
         what_fav = request.POST["whatfav"]
         best_spot = request.POST["bestspot"]
         any_interesting = request.POST["anyinteresting"]
+        class_array_json = request.POST["classestoadd"]
+        new_json = request.POST["true"]
+        print("new-json:" + new_json)
+        new = json.loads(new_json)
+        print(new)
+        print("a: " + class_array_json)
+        class_list = json.loads(class_array_json)
+        print(class_list)
+        remove_array = request.POST["classestoremove"]
+        print("c: " + remove_array)
+        remove_list = json.loads(remove_array)
+        print(remove_list)
         if rate.startswith('$'):
             end = len(rate) - 1
             rate = rate[1:end]
         if request.POST["number"]:
             number = request.POST["number"]
+
         if request.user.is_authenticated:
             user_person = request.user
         else:
             return render(request, "home/login.html", {
                 "message": "There was an error in your sign up process, please contact support to finish singing up. Error #108"
             })
-
-        new_tutor = Tutor(user=user_person,first_name=user_person.first_name, last_name=user_person.last_name)
+        if new == True:
+            new_tutor = Tutor(user=user_person,first_name=user_person.first_name, last_name=user_person.last_name)
+        elif new==False:
+            new_tutor = Tutor.objects.get(user=user_person)
         new_tutor.why_GT = why_GT
         new_tutor.what_fav = what_fav
         new_tutor.best_spot = best_spot
@@ -130,11 +157,33 @@ def registration_view(request):
         if request.POST["number"]:
             new_tutor.phone_number = number
         new_tutor.save()
-        class_array_json = request.POST["classestoadd"]
-        class_list = json.loads(class_array_json)
+
+
+        for item in remove_list:
+            try:
+                new_tutor.classes.remove(Class.objects.get(url=item))
+                new_tutor.save()
+            except:
+                pass
         for item in class_list:
-            new_tutor.classes.add(Class.objects.get(url=item))
-            new_tutor.save()
+            try:
+                new_tutor.classes.add(Class.objects.get(url=item))
+                new_tutor.save()
+            except IntegrityError:
+                pass
+
         new_tutor.save()
-        logout(request)
+
         return HttpResponseRedirect(reverse("home:index"))
+    if not request.user.is_authenticated:
+        return HttpResponse("<h1> This page is not accessible to you. Please sign in. </h1>")
+    try:
+        tutor = Tutor.objects.get(user=request.user)
+    except:
+        return HttpResponse("<h1> This page is not accessible to you. Please become a Tutor. </h1>")
+    return render(request, "home/tutor_register.html", {
+        "tutor_classes": Class.objects.filter(tutors=tutor),
+        "tutor": tutor,
+        "classes": Class.objects.exclude(tutors=tutor),
+        "new":"false"
+    })

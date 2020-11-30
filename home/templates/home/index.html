@@ -18,6 +18,11 @@
       </div>
     </div>
     <div class="right-side">
+    {% if tutor_is_there %}
+      <div class="nav-link-wrapper">
+          <a href="{% url 'home:registration'%}">My Profile</a>
+      </div>
+    {% endif %}
       <div class="nav-link-wrapper">
         <a href="#students-container">For Students</a>
       </div>

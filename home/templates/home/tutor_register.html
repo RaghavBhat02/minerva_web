@@ -17,32 +17,60 @@
             <div class="questions-container">
                 <div class="question">
                     <label for="rate">What is your estimated rate (dollars per hour)?</label>
+                {% if tutor %}
+                    <input type="text" name="rate" placeholder="Rate here..." value="{{tutor.rate}}" required>
+                {% else %}
                     <input type="text" name="rate" placeholder="Rate here..." required>
+                {% endif %}
                 </div>
                 <div class="question">
                     <label for="calendly">What is your Calendly Link?</label>
+                {% if tutor %}
+                    <input type="text" name="calendly" placeholder="Calendly Link Here..." value="{{tutor.calendly}}" required>
+                {% else %}
                     <input type="text" name="calendly" placeholder="Calendly Link Here..." required>
+                {% endif %}
                 </div>
                 <div class="question">
                     <label for="number">Phone Number (Optional)</label>
-                    <input type="text" name="number" placeholder="1-800-Min-erva">
+                {% if tutor and tutor.phone_number %}
+                    <input type="text" name="number" placeholder="800Minerva" value ="{{tutor.phone_number}}" >
+                {% else %}
+                    <input type="text" name="number" placeholder="800Minerva">
+                {% endif %}
                 </div>
 
                 <div class="question">
                     <label for="whyGT">Why would you be a good tutor? (I.e grade gotten in the class, experience with the class, achievements, number of years tutoring, etc) </label>
+                {% if tutor %}
+                    <textarea name="whyGT" rows="8" placeholder="Enter Your Answer Here..." required>{{tutor.why_GT}}</textarea>
+                {% else %}
                     <textarea name="whyGT" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                {% endif %}
                 </div>
                 <div class="question">
                     <label for="whatfav">What is your favorite thing to do in Ann Arbor? (I.e best restaurant, secret hang out spots, etc)</label>
+                {% if tutor %}
+                    <textarea name="whatfav" rows="8" placeholder="Enter Your Answer Here..." required>{{tutor.what_fav}}</textarea>
+                {% else %}
                     <textarea name="whatfav" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                {% endif %}
                 </div>
                 <div class="question">
                     <label for="bestspot">Best study spot in Ann Arbor (if you know a secret quiet one even better!)</label>
+                {% if tutor %}
+                    <textarea name="bestspot" rows="8" placeholder="Enter Your Answer Here..." required>{{tutor.best_spot}}</textarea>
+                {% else %}
                     <textarea name="bestspot" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                {% endif %}
                 </div>
                 <div class="question">
                     <label for="anyinteresting">Anything else interesting you want people to know about you or anything else you want to add</label>
+                {% if tutor %}
+                    <textarea name="anyinteresting" rows="8" placeholder="Enter Your Answer Here..." required>{{tutor.any_interesting}}</textarea>
+                {% else %}
                     <textarea name="anyinteresting" rows="8" placeholder="Enter Your Answer Here..." required></textarea>
+                {% endif %}
                 </div>
                 <div class="question">
                         <label for="class-list">Select your classes from the list. You can add and remove classes as you wish.</label>
@@ -52,7 +80,7 @@
                             <ol id="class-list">
                                 {% if tutor_classes %}
                                     {% for class in tutor_classes %}
-                                        <li>{{class.department}} {{class.number}} - {{class.name}}</li>
+                                        <li data-value="{{class.url}}">{{class.department}} {{class.number}} - {{class.name}}</li>
                                     {% endfor %}
                                 {% endif %}
                             </ol>
@@ -77,6 +105,8 @@
                         </div>
                 </div>
                 <input type="hidden" name="classestoadd" id="class-array">
+                <input type="hidden" name="classestoremove" id="remove-array">
+                <input type="hidden" name="true" value="{{new}}">
                 <button type="submit">Submit</button>
             </div>
         </form>
