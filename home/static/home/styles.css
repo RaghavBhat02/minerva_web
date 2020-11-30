@@ -33,13 +33,27 @@ body {
 
 }
 /* logo */
+
 .logo_image {
     width: 100px;
 }
 
-.right-side {
-    display: flex;
+/* RIGHT SIDE */
+@media (max-width: 640px) {
+    .right-side {
+        display:none;
+    }
+
 }
+@media (min-width: 641px) {
+    .right-side {
+        display: flex;
+    }
+    .mobile-nav {
+        display:none;
+    }
+}
+
 
 .right-side > div {
     display: flex;
