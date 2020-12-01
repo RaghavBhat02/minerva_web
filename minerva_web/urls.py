@@ -24,7 +24,7 @@ from django.http import HttpResponseRedirect
 
 
 urlpatterns = [
-    path('', redirect, name="root")
+    path('', redirect, name="root"),
     path('admin/', admin.site.urls),
     path('home/', include("home.urls"))
 ]
