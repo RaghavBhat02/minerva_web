@@ -154,8 +154,8 @@ def registration_view(request):
         new_tutor.last_paid = datetime.date(2000, 11, 22)
         new_tutor.calendly = calendly
 
-        if request.POST["number"]:
-            new_tutor.phone_number = number
+        #if request.POST["number"]:
+            #new_tutor.phone_number = number
         new_tutor.save()
 
 
