@@ -18,14 +18,19 @@ from django.urls import path, include
 from . import settings
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
+from django.shortcuts import reverse
+from django.http import HttpResponseRedirect
 
 
 
 urlpatterns = [
+    path('', redirect, name="root")
     path('admin/', admin.site.urls),
     path('home/', include("home.urls"))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+def redirect(request):
+    HttpResponseRedirect(reverse("home:index"))
