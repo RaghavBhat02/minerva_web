@@ -113,7 +113,7 @@ def registration_view(request):
     if request.method == "POST":
         rate = request.POST["rate"]
         calendly = request.POST["calendly"]
-        
+
         why_GT = request.POST["whyGT"]
         what_fav = request.POST["whatfav"]
         best_spot = request.POST["bestspot"]
@@ -133,8 +133,8 @@ def registration_view(request):
         if rate.startswith('$'):
             end = len(rate) - 1
             rate = rate[1:end]
-        if request.POST["number"]:
-            number = request.POST["number"]
+        #if request.POST["number"]:
+            #number = request.POST["number"]
 
         if request.user.is_authenticated:
             user_person = request.user
