@@ -21,7 +21,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.shortcuts import reverse
 from django.http import HttpResponseRedirect
 
-
+def redirect(request):
+    HttpResponseRedirect(reverse("home:index"))
 
 urlpatterns = [
     path('', redirect, name="root"),
@@ -31,6 +32,3 @@ urlpatterns = [
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-def redirect(request):
-    HttpResponseRedirect(reverse("home:index"))
