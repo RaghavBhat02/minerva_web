@@ -113,7 +113,8 @@ def registration_view(request):
     if request.method == "POST":
         rate = request.POST["rate"]
         calendly = request.POST["calendly"]
-
+        if not calendly.startswith('https://'):
+            calnedly = "https://" + calendly
         why_GT = request.POST["whyGT"]
         what_fav = request.POST["whatfav"]
         best_spot = request.POST["bestspot"]
