@@ -22,7 +22,7 @@ from django.shortcuts import reverse
 from django.http import HttpResponseRedirect
 
 def redirect(request):
-    HttpResponseRedirect(reverse("home:index"))
+    return HttpResponseRedirect(reverse("home:index"))
 
 urlpatterns = [
     path('', redirect, name="root"),
