@@ -170,6 +170,7 @@ h1 span {
     display: flex;
     flex-wrap: wrap;
     padding: 2px 16px;
+    align-items: center;
 }
 .class {
     background-color: black;
