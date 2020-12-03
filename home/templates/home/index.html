@@ -61,7 +61,7 @@
 <!-- students page begins here-->
 <div id="students-container">
     <h1 class="section-header">For Students</h1>
-    <span>Click below to find tuTors for your classes!</span>
+    <span>Click below to find tutors for your classes!</span>
     <div id="classes" width="100%">
         {% for class in classes %}
             <div class="class"><a href="{% url 'home:class' class.url %}">{{class.department}} {{class.number}}</a></div>
