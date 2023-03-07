@@ -26,7 +26,7 @@ SECRET_KEY = 'gbrl8&o)v1=bl2v!e!*5)^2a=xgdpa(!1n9j5heamsgp8u@g(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'minerva.up.railway.app' ]
 
 
 # Application definition
